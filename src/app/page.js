@@ -4,19 +4,20 @@ import MainSwiper from "@/components/MainSwiper/MainSwiper";
 import Form from "@/components/Form/Form";
 import { inputs } from "@/data/data";
 
-// export async function sendForm() {
-//   await mainApi.sendForm();
+// export async function generateMetadata() {
+//   const meta = await mainApi.getMeta('main');
+//   return meta;
 // }
 
 export default async function Page() {
 
-  const posts = await mainApi.getContent();
-  const sliderPosts = await mainApi.getSliderPosts();
+  const projects = await mainApi.getMainPosts();
+  const sliderProjects = await mainApi.getSliderPosts();
 
   return (
     <>
-      <MainSwiper projects={sliderPosts} />
-      <ProjectList projects={posts} />
+      <MainSwiper projects={sliderProjects} />
+      <ProjectList projects={projects} />
       <Form title={"Хотите также? Давайте обсудим!"} inputs={inputs} buttonText={'Отправить'} />
     </>
   );

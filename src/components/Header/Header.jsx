@@ -2,13 +2,18 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import NavigationLink from "../NavigationLink/NavigationLink";
-import Logo from "../Logo/Logo";
 import CategoryList from "../CategoryList/CategoryList";
 import HeaderButton from "./HeaderButton";
 
-const Header = ({categories}) => {
+const Header = ({ categories }) => {
 
   const pathname = usePathname();
+
+  const headerCat = [{
+    id: 'port',
+    name: 'Все проекты',
+    slug: ''
+  }, ...categories];
 
   const [activeHeader, setActiveHeader] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(false);
@@ -45,20 +50,20 @@ const Header = ({categories}) => {
 
   return (
     <>
-      <HeaderButton isActive={activeHeader} setIsActive={setHeader}/>
+      <HeaderButton isActive={activeHeader} setIsActive={setHeader} />
       <div
-        className={`header__button-overlay ${
-          (activeHeader || activeSubMenu) ? "header__button-overlay_active" : ""
-        }`}
+        className={`header__button-overlay ${(activeHeader || activeSubMenu) ? "header__button-overlay_active" : ""
+          }`}
         onClick={() => {
-          console.log('click');
           setActiveHeader(false);
           setActiveSubMenu(false);
         }}
       />
       <header className={`header ${activeHeader ? "header_opened" : ""}`}>
-        <Logo />
         <ul className="navigation__list">
+          <li className="navigation__item navigation__item_bold mobile">
+            <NavigationLink title={'Главная'} link="/" />
+          </li>
           <li className="navigation__item navigation__item_bold">
             <NavigationLink title={'О нас'} link="/about" />
           </li>
@@ -69,11 +74,14 @@ const Header = ({categories}) => {
             }}
           >
             <div className="navigation__link navigation__button">
-              Проекты
-              <div className={`header__cat-container ${activeSubMenu? 'header__cat-container_active' : ''}`}>
-                <CategoryList categories={categories} />
+              Портфолио
+              <div className={`header__cat-container ${activeSubMenu ? 'header__cat-container_active' : ''}`}>
+                <CategoryList categories={headerCat} />
               </div>
             </div>
+          </li>
+          <li className="navigation__item navigation__item_bold">
+            <NavigationLink title={'Услуги'} link="/services" />
           </li>
           <li className="navigation__item navigation__item_bold">
             <NavigationLink title={'Контакты'} link="/contact" />

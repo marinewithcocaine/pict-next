@@ -2,23 +2,15 @@
 @import '../Vendor/fonts/fonts.css';
 @import '../scss/variables/variables';
 @import '../scss/breakpoints/breakpoints';
-@import '../components/Card/card.scss';
-@import '../components/ProjectList/ProjectList.scss';
-@import '../scss/pageProject.scss';
 @import '../components/MainSwiper/MainSwiper.scss';
 @import '../scss/category.scss';
-@import '../components/Logo/Logo.scss';
-@import '../components/Footer/footer.scss';
 @import '../components/CategoryList/CategoryList.scss';
 @import '../components/NavigationLink/NavigationLink.scss';
 @import '../components/Header/Header.scss';
 @import '../components/Header/Navigation.scss';
-@import '../components/NavLinkArrow/NavLinkArrow.scss';
-@import '../scss/Contacts.scss';
-@import '../components/Form/Form.scss';
 @import '../components/Preloader/Preloader.scss';
-@import '../scss/notFound.scss';
-@import '../scss/Popup.scss';
+@import '../components/ServicePost/ServicePost.scss';
+@import '../components/ServicePosts/ServicePosts.scss';
 
 body {
   margin: 0;
@@ -91,13 +83,36 @@ a {
   }
 }
 
-.language-button {
-  border: none;
-  text-transform: uppercase;
-  position: fixed;
-  top: 50px;
-  right: 50px;
-  cursor: pointer;
-  z-index: 1000;
-  background: none;
+.wp-block-image {
+  display: flex;
+  justify-content: center;
+}
+
+.wp-block-columns {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+
+  @include desktop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+  }
+  
+  p {
+    @include adaptive-font(18, 14);
+    opacity: 0.7;
+    line-height: 24px;
+    font-weight: 300;
+
+    @include desktop {
+      padding: 0 40px;
+    }
+
+    @include tablet {
+      padding: 0 30px;
+    }
+  }
 }

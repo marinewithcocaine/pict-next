@@ -1,5 +1,6 @@
 'use client'
-import { useEffect } from "react"
+import { useEffect } from "react";
+import styles from './Popup.module.scss';
 
 export default function Popup({ message, active, setClose }) {
 
@@ -21,11 +22,11 @@ export default function Popup({ message, active, setClose }) {
     if (!active) return null;
 
     return (
-        <div className={active ? "popup popup_active" : "popup"} onClick={setClose}>
-            <div className="popup__wrapper" onClick={e => e.stopPropagation()}>
+        <div className={active ? `${styles.popup} ${styles.popup_active}` : `${styles.popup}`} onClick={setClose}>
+            <div className={styles.popup__wrapper} onClick={e => e.stopPropagation()}>
                 <h3>{message}</h3>
-                <div className="popup__close-button" onClick={setClose}>
-                    <span className="popup__button-lines"></span>
+                <div className={styles.popup__close_button} onClick={setClose}>
+                    <span className={styles.popup__button_lines}></span>
                 </div>
             </div>
         </div>

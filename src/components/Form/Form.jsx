@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useFormWithValidation } from "../../lib/useForm";
 import Popup from "../Popup/popup";
 import { IMaskInput } from "react-imask";
+import Link from "next/link";
+import styles from './Form.module.scss';
 
 const Form = ({ inputs, buttonText, error, clearError, title }) => {
 
@@ -23,7 +25,6 @@ const Form = ({ inputs, buttonText, error, clearError, title }) => {
     });
     const data = await res.json();
     setMessage(data.message);
-    console.log(data);
     setPopupOpen(true);
     resetForm();
   }
@@ -35,12 +36,12 @@ const Form = ({ inputs, buttonText, error, clearError, title }) => {
   }
 
   return (
-    <section className="contact-form">
-      <div className="contact-form__wrapper">
-        <h2>{title}</h2>
+    <section className={styles.contact_form}>
+      <div className={styles.contact_form__wrapper}>
+        <h2 className={styles.contact_form__title}>{title}</h2>
         <Popup active={isPopupOpen} message={message} setClose={handleClose} />
-        <form className="form" action={FormAction}>
-          <div className="form__inputs">
+        <form className={styles.form} action={FormAction}>
+          <div className={styles.form__inputs}>
             {inputs.map((input) => {
               return (
                 <div className="form__input-container" key={input.id}>
@@ -50,7 +51,7 @@ const Form = ({ inputs, buttonText, error, clearError, title }) => {
                     id={input.id}
                     value={values[input.name] || ""}
                     onChange={handleChange}
-                    className="form__input"
+                    className={styles.form__input}
                     type={input.type}
                     required={input.required}
                     pattern={input.pattern}
@@ -61,6 +62,19 @@ const Form = ({ inputs, buttonText, error, clearError, title }) => {
                 </div>
               );
             })}
+            <label className={styles.container}>
+            <IMaskInput
+              name={'checkbox'}
+              id={'checkbox'}
+              onChange={handleChange}
+              className={`${styles.form__input} ${styles.form__input_checkbox}`}
+              type={'checkbox'}
+              required={'required'}
+            />
+            <span className={styles.checkmark} />
+            <p className={styles.text}>Согласие на обработку персональных данных в соответствии с <Link href={'http://api.pictdesign.ru/wp-content/uploads/2025/02/Privacy.pdf'} target="_blank">правилами сайта</Link></p>
+            </label>
+            
           </div>
           {error && (
             <button onClick={handleCloseError} className="form__submit-error">
@@ -71,7 +85,7 @@ const Form = ({ inputs, buttonText, error, clearError, title }) => {
               </span>
             </button>
           )}
-          <button className="form__submit" type="submit" disabled={!isValid}>
+          <button className={styles.form__submit} type="submit" disabled={!isValid}>
             {buttonText}
           </button>
         </form>

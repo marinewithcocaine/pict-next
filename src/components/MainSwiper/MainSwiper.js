@@ -48,7 +48,7 @@ const MainSwiper = ({ projects = [] }) => {
               style={{ backgroundColor: project.acf["post_slider_bg_color"] }}
             >
               <img
-                src={project.acf["post_slider_image"]["url"]}
+                src={project.acf["post_slider_image"]}
                 alt={project.title.rendered}
               />
               <div className="slider__info">

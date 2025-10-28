@@ -1,0 +1,45 @@
+@import '../../scss/breakpoints/breakpoints';
+@import '../../scss/variables/variables';
+
+.services {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 55px;
+    animation: open .8s ease;
+
+    @keyframes open {
+        0% {
+          opacity: 0;
+        }
+    
+        100% {
+          opacity: 1;
+        }
+      }
+
+    &__title_wrapper {
+        padding: 150px 100px 0 100px;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        h1 {
+            @include adaptive-font(60, 38);
+            grid-column: 3 / 6;
+        }
+
+        @include desktop {
+          padding-top: 50px;
+          padding-left: 60px;
+        }
+    }
+
+    @include desktop {
+        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+}

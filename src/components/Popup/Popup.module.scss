@@ -1,0 +1,71 @@
+@import '../../scss/breakpoints/breakpoints';
+@import '../../scss/variables/variables';
+
+.popup {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+
+    &_active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    &__wrapper {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        padding: 40px;
+        border-radius: 20px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        @include desktop {
+            width: 60%;
+        }
+    }
+
+    &__close_button {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        position: absolute;
+        top: -25px;
+        right: -35px;
+        cursor: pointer;
+        z-index: 100;
+        transition: all .3s;
+
+        &:hover {
+            opacity: .6;
+        }
+    }
+
+    &__button_lines::before,
+    &__button_lines {
+        display: flex;
+        position: relative;
+        width: 100%;
+        background-color: white;
+        height: 2px;
+        content: "";
+    }
+
+    &__button_lines {
+        transform: rotate(135deg);
+    }
+
+    &__button_lines::before {
+        transform: rotate(90deg);
+    }
+}

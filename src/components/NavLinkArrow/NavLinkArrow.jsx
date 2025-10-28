@@ -1,17 +1,16 @@
 import Link from "next/link";
+import styles from './NavLinkArrow.module.scss';
 
-const NavLinkArrow = (props) => {
-
-  const alignSelf = props.alignSelf;
+const NavLinkArrow = ({link, title, alignSelf, color = '#fff'}) => {
 
   return (
-    <div className="navlink-arrow">
-      <Link href={props.link} download="">
-        {props.title}
+    <div className={`${styles.navlink_arrow}`}>
+      <Link href={link} download="">
+        {title}
         <svg xmlns="http://www.w3.org/2000/svg" width="31.25" height="26.794">
           <g
             fill="none"
-            stroke="#231f20"
+            stroke={color}
             strokeLinecap="round"
             strokeMiterlimit="10"
             strokeWidth="4"

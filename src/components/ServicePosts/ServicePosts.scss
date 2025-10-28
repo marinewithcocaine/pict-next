@@ -1,0 +1,17 @@
+.service-posts {
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    padding-bottom: 50px;
+
+    @include desktop {
+        padding-bottom: 0px;
+    }
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+    }
+}

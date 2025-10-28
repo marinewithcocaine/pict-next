@@ -1,0 +1,87 @@
+@import '../../../scss/variables/variables';
+@import '../../../scss/breakpoints/breakpoints';
+
+
+.service {
+    .wp-block-columns {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto;
+        font-weight: normal;
+        flex-wrap: wrap;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            row-gap: 50px;
+        }
+    }
+
+    .list {
+        row-gap: 20px;
+    }
+
+    .wp-block-column {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+
+        figure {
+
+            img {
+                height: 40px;
+            }
+        }
+    }
+
+    .left {
+        grid-column: 2/7;
+    }
+
+    .right {
+        grid-column: 8/13;
+    }
+
+    .center {
+        grid-column: 5/11;
+
+        @include lgdesktop {
+            grid-column: 4/11;
+        }
+
+        @include desktop {
+            grid-column: 3/12;
+        }
+
+        .wp-block-columns {
+            display: flex;
+            column-gap: 50px;
+        }
+
+
+    }
+
+    .wp-block-list {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+
+        li:first-child {
+            padding-bottom: 20px;
+        }
+
+    }
+
+    p {
+        @include adaptive-font(21, 16);
+        @include adaptive-line(28, 24);
+        font-weight: 100;
+    }
+
+    .wp-block-heading {
+        @include adaptive-font(36, 28);
+        @include adaptive-line(48, 40);
+    }
+}

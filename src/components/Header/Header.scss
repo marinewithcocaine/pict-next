@@ -1,5 +1,6 @@
 .header {
   height: 100vh;
+  min-height: 800px;
   padding: 50px 0 30px 30px;
   box-sizing: border-box;
   display: flex;
@@ -7,7 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform .4s ease-in;
-  z-index: 11;
+  z-index: 101;
 
   &_opened {
     transform: translateX(300px);
@@ -23,7 +24,7 @@
     top: 15px;
     left: 15px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 110;
   }
 
   &__button-lines::before,
@@ -72,7 +73,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 10;
+    z-index: 101;
     opacity: 0;
     background-color: #fff;
     transition: opacity .4s ease-in, visibility .4s ease-in;
@@ -80,7 +81,7 @@
     &_active {
       display: block;
       visibility: visible;
-      opacity: .6;
+      opacity: .9;
     }
   }
 

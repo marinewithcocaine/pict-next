@@ -1,0 +1,171 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: open .8s ease;
+  background-image: url('../Assets/Images/about.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  height: 100vh;
+  min-height: 900px;
+
+  @include desktop {
+    min-height: 700px;
+  }
+
+  @include tablet {
+    min-height: fit-content;
+  }
+  
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .banner-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+    }
+  }
+
+  .about__info {
+    max-width: 1920px;
+    min-height: 1000px;
+    max-height: 1200px;
+    padding: 150px 8% 100px 8%;
+    box-sizing: border-box;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "empty title text text"
+      "empty fact1 fact2 fact3";
+      row-gap: 90px;
+
+      @include desktop {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        "title title title"
+        "text text text"
+        "fact1 fact2 fact3";
+        padding: 100px 50px 100px 50px;
+        row-gap: 50px;
+        column-gap: 50px;
+        max-height: none;
+        min-height: auto;
+        height: auto;
+      }
+
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        padding: 100px 30px;
+      }
+
+    h1 {
+      @include adaptive-font(60, 38);
+      grid-area: title;
+    }
+
+    .about__text {
+      grid-area: text;
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+      font-weight: 300;
+
+      @include desktop {
+        row-gap: 50px;
+        align-items: center;
+      }
+
+      p {
+        font-weight: 300;
+        @include adaptive-font(21, 14);
+        line-height: 28px;
+      }
+
+      
+    }
+
+    .about__fact {
+      display: flex;
+      flex-direction: column;
+      font-weight: 300;
+      max-width: 190px;
+
+      @include desktop {
+        max-width: 180px;
+      }
+
+      @include tablet {
+        align-self: center;
+        text-align: center;
+      }
+
+      strong {
+        font-size: 60px;
+      }
+
+      span {
+        @include adaptive-font(21, 14);
+        line-height: 28px;
+        max-width: 200px;
+
+        @include desktop {
+          line-height: 21px;
+        }
+      }
+
+      &:nth-of-type(n) {
+        grid-area: fact1;
+      }
+
+      &:nth-of-type(2n) {
+        grid-area: fact2;
+      }
+
+      &:last-of-type {
+        grid-area: fact3;
+        max-width: 150px;
+      }
+    }
+  }
+
+  .presentation {
+    padding: 0 5%;
+    padding-bottom: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "empty button";
+    column-gap: 50px;
+
+    @include desktop {
+      padding: 30px 5%;
+      column-gap: 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+};
+
+.navlink-arrow a svg{
+    stroke: #fff;
+}

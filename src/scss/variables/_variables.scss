@@ -36,3 +36,11 @@
   }
 }
 
+@mixin adaptive-line ($maxSize, $minSize) {
+  $diffSize: $maxSize - $minSize;
+  $addSize: $diffSize * 1.6;
+  @media (min-width: $desktop) {
+    line-height: calc(#{$minSize + px} + #{$diffSize} * 1.7 * ((100vw - 1024px) / 1920));
+  }
+}
+

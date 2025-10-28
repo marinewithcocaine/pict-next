@@ -1,21 +1,22 @@
 import Link from "next/link";
+import styles from './card.module.scss';
 
 const Card = ({ card }) => {
 
   const { title, slug, _embedded } = card;
 
   return (
-    <li className="card">
-      <Link href={`/project/${slug}`} className="card__link">
-        <div className="image-block">
+    <li className={styles.card}>
+      <Link href={`/project/${slug}`} className={styles.card__link}>
+        <div className={styles.image_block}>
             <img
-              className="card__image"
+              className={styles.card__image}
               src={_embedded["wp:featuredmedia"]["0"]["source_url"]}
               alt={title.rendered}
             />
         </div>
-        <div className="card__info">
-          <h3 className="card__title">{title.rendered}</h3>
+        <div className={styles.card__info}>
+          <h3 className={styles.card__title}>{title.rendered}</h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24.901"
@@ -35,7 +36,7 @@ const Card = ({ card }) => {
               />
             </g>
           </svg>
-          <p className="card__category">{_embedded["wp:term"]["0"]["0"]["name"]}</p>
+          <p className={styles.card__category}>{_embedded["wp:term"]["0"]["0"]["name"]}</p>
         </div>
       </Link>
     </li>

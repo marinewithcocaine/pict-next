@@ -1,15 +1,20 @@
-'use client'
 import { contacts, inputs } from "@/data/data";
 import Form from "@/components/Form/Form";
 import { mainApi } from "@/Utils/api";
 import Image from "next/image";
+import styles from './contact.module.scss'
+
+export async function generateMetadata() {
+    const meta = await mainApi.getMeta('contact');
+    return meta;
+}
 
 export default function Page() {
 
     return (
         <>
-            <section className="contacts">
-                <div className="contacts__wrapper">
+            <section className={styles.contacts}>
+                <div className={styles.contacts__wrapper}>
                     <h1>Контакты</h1>
                     <p>Свяжитесь с нами любым удобным для Вас способом:</p>
                     <ul>
@@ -23,7 +28,6 @@ export default function Page() {
                             );
                         })}
                     </ul>
-
                 </div>
             </section>
             <Form
@@ -31,6 +35,7 @@ export default function Page() {
                 inputs={inputs}
                 buttonText={'Отправить'}
             />
+
         </>
     )
 }

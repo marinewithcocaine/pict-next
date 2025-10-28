@@ -1,0 +1,75 @@
+@import '../../scss/variables/variables';
+@import '../../scss/breakpoints/breakpoints';
+
+.list {
+  max-width: 1920px;
+  width: 100%;
+  padding: 100px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+
+  @include tablet {
+    padding: 50px;
+  }
+
+  @include mobile {
+    padding: 30px;
+  }
+
+}
+
+.project_list {
+  width: 100%;
+  list-style-type: none;
+  box-sizing: border-box;
+  display: grid;
+  gap: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: space-between;
+  align-self: center;
+  animation: open .8s ease;
+  
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 1921px) {
+    max-width: none;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+.project__recommend_title {
+  @include adaptive-font(24, 18);
+}
+
+.button_container {
+  padding: 30px 100px 0 100px;
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.button_container div {
+  grid-column: 3/11;
+}

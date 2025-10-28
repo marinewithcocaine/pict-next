@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from '/public/logo.svg';
 import logoP from '/public/logo-p.svg';
 import Link from "next/link";
+import styles from './Logo.module.scss';
 
 const Logo = () => {
 
@@ -34,7 +35,7 @@ const Logo = () => {
     return logoP;
   };
 
-  const width = () => {
+  function width() {
     if (offset < 500) {
       return "150";
     }
@@ -42,16 +43,16 @@ const Logo = () => {
   };
 
   return (
-    <div width="150px" className="logo_header logo_header_pos_relative">
+    <div className={styles.logo_header}>
       <Link
-        className="logo"
+        className={styles.logo}
         href="/"
       >
         <Image
           src={logoImage()}
           width={width()}
           alt="Логотип Pict.design" 
-          className="footer__logo"/>
+          className={styles.footer__logo}/>
       </Link>
     </div>
   );
