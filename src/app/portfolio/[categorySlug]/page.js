@@ -6,11 +6,10 @@ import { inputs } from "@/data/data";
 
 export async function generateStaticParams() {
     const categories = (await mainApi.getCategories());
-    const data = categories.map((category) => ({
+    return categories.map((category) => ({
         slug: category.slug,
     }))
-    console.log(data);
-    return data;
+
 }
 
 export async function generateMetadata({ params }) {

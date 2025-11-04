@@ -17,7 +17,6 @@ export async function generateStaticParams() {
     const data = services.map(service => ({
         slug: service.slug,
     }));
-    console.log(data);
     return data;
 }
 

@@ -4,7 +4,6 @@ const nextConfig = {
     styledComponents: true,
   },
   distDir: "build",
-  // output: 'export'
 };
 
 export default nextConfig;
