@@ -27,7 +27,7 @@ export default async function Footer({ categories }) {
       </nav>
       <nav className={styles.footer__nav_list}>
         <h3 className={styles.footer__list_title}>
-          <NavigationLink title={'Контакты'} link="/сontact" />
+          <NavigationLink title={'Контакты'} link="/contact" />
         </h3>
         <ul className={styles.footer__list}>
           {contacts.map((contact, i) => {
