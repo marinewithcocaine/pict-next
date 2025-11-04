@@ -5,7 +5,7 @@ import Form from "@/components/Form/Form";
 import { inputs } from "@/data/data";
 
 export async function generateStaticParams() {
-    const categories = (await mainApi.getCategories());
+    const categories = await mainApi.getCategories();
     return categories.map((category) => ({
         slug: category.slug,
     }))
